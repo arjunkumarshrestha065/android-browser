@@ -1,1 +1,1 @@
-# No custom ProGuard rules required for the launcher test.
+# No custom rules required.

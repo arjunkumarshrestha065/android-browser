@@ -1,63 +1,52 @@
-# Signage Kiosk Browser Launcher Test
+# Offline USB Signage Browser
 
-This is the first test version for the Q96 TV box.
+## Functions
 
-## Current features
+- Select external USB folder once
+- Permanently remember USB-folder permission
+- Download the assigned client/group playlist from `/api/client/playlist/:token`
+- Save videos and images under `SignageKiosk/media`
+- Save the active playlist under `SignageKiosk/data/playlist.json`
+- Play saved files after restart without internet
+- Download only missing files
+- Keep old playlist if synchronization fails
+- Delete files no longer assigned after the new playlist is saved
+- Android 9 SDK 28 compatible
+- HOME and Android TV launcher support
+- GitHub Actions APK build
 
-- Android 9 / SDK 28 compatible
-- Full-screen WebView browser
-- Player URL setup screen
-- Android TV launcher entry
-- HOME launcher capability
-- BOOT_COMPLETED receiver
-- Landscape mode
-- Keep screen awake
-- Automatic reload after connection failure
-- Separate package name so the current signage APK is not replaced
+## USB folder structure
 
-## Package name
-
-`com.arjun.signagekiosktest`
+```text
+Selected USB Folder/
+└── SignageKiosk/
+    ├── media/
+    ├── data/
+    │   └── playlist.json
+    └── temp/
+```
 
 ## GitHub upload
 
-Upload the CONTENTS of this folder to the root of a new GitHub repository.
-Do not upload the ZIP without extracting it.
+Extract this ZIP. Upload everything INSIDE `Signage-Kiosk-Browser-Offline` to the root of the GitHub repository.
+If `.github` does not upload, create `.github/workflows/build-apk.yml` manually on GitHub.
 
-The repository root must contain:
+## Build
 
-```text
-.github/
-app/
-build.gradle
-gradle.properties
-settings.gradle
-README.md
-```
+Open Actions, choose **Build Offline USB Signage APK**, run the workflow, then download **Signage-Kiosk-Offline-USB-APK** from Artifacts.
 
-## Build APK
+## First setup on TV box
 
-1. Open the GitHub repository.
-2. Open **Actions**.
-3. Select **Build Signage Kiosk APK**.
-4. Click **Run workflow**.
-5. Wait for the green check mark.
-6. Open the completed workflow.
-7. Download **Signage-Kiosk-Browser-Test-APK** from Artifacts.
-8. Extract the downloaded artifact ZIP.
-9. Install `app-debug.apk` on the TV box.
-
-## First test
-
-1. Open the app manually.
-2. Enter the player URL and select **Save and Open Player**.
-3. Confirm the page loads.
-4. Press the TV remote Home button.
-5. Select **Signage Kiosk Browser Test** and choose **Always**, if prompted.
-6. Disconnect power for 15 seconds.
-7. Reconnect power without pressing any remote button.
-8. Check whether this app opens automatically.
+1. Install and open the APK.
+2. Enter server URL without `/player.html`, for example `http://10.10.10.20:3000`.
+3. Enter the existing client token.
+4. Select **Select USB Storage Folder**.
+5. Choose the USB drive or a folder inside it.
+6. Select **Use this folder** and allow access.
+7. Select **Save and Start**.
+8. Keep internet connected until first synchronization completes.
+9. Disconnect internet and restart the box to test offline playback.
 
 ## Important
 
-This is only the launcher test version. USB downloading and offline media playback will be added only after the Home launcher test succeeds.
+The server must return `items` containing `full_url` or `file_url`, `file_name`, `file_type`, and `duration` from `/api/client/playlist/:token`.
