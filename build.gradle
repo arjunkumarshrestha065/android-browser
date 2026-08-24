@@ -1,3 +1,14 @@
-plugins {
-    id 'com.android.application' version '8.2.2' apply false
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.arjun.signagekioskautousb'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.arjun.signagekioskautousb'
+        minSdk 23
+        targetSdk 28
+        versionCode 1
+        versionName '2.0-auto-usb'
+    }
 }
