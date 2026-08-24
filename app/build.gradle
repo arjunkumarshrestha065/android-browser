@@ -1,8 +1,10 @@
-plugins { id 'com.android.application' }
+plugins {
+    id 'com.android.application'
+}
 
 android {
     namespace 'com.arjun.signagekioskoffline'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId 'com.arjun.signagekioskoffline'
