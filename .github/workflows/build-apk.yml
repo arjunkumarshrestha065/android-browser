@@ -1,4 +1,4 @@
-name: Build Offline USB Signage APK
+name: Build AP Signage Auto USB APK
 
 on:
   workflow_dispatch:
@@ -25,6 +25,6 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Signage-Kiosk-Offline-USB-APK
+          name: AP-Signage-Auto-USB-APK
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
