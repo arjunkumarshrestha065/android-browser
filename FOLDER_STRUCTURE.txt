@@ -1,0 +1,30 @@
+Signage-Kiosk-Browser/
+|-- .github/
+|   `-- workflows/
+|       `-- build-apk.yml
+|-- app/
+|   |-- build.gradle
+|   |-- proguard-rules.pro
+|   `-- src/
+|       `-- main/
+|           |-- AndroidManifest.xml
+|           |-- java/
+|           |   `-- com/
+|           |       `-- arjun/
+|           |           `-- signagekiosktest/
+|           |               |-- MainActivity.java
+|           |               `-- BootReceiver.java
+|           `-- res/
+|               |-- drawable/
+|               |   `-- ic_signage.xml
+|               |-- layout/
+|               |   `-- activity_main.xml
+|               `-- values/
+|                   |-- colors.xml
+|                   |-- strings.xml
+|                   `-- styles.xml
+|-- build.gradle
+|-- gradle.properties
+|-- settings.gradle
+|-- README.md
+`-- FOLDER_STRUCTURE.txt
